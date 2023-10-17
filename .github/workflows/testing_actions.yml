@@ -51,12 +51,13 @@ jobs:
           ENVIRONMENT: ${{ inputs.environment }}
   log-the-secrets-and-vars:
     runs-on: ubuntu-latest
+    environment: envtest
     steps:
       - run: |
-          echo "Secret: ${{ secrets.SECRETTEST }}"
-          echo "Vars: ${{ vars.ENVVAR }}"
+          echo "Secret: $SECRET"
+          echo "Vars: $VARS"
           echo "Environment: $ENVIRONMENT"
         env:
-          LEVEL: ${{ inputs.logLevel }}
-          TAGS: ${{ inputs.tags }}
+          SECRET: ${{ secrets.SECRETTEST }}
+          VARS: ${{ vars.ENVVAR }}
           ENVIRONMENT: ${{ inputs.environment }}
