@@ -55,9 +55,8 @@ jobs:
     steps:
       - run: |
           echo "Secret: $SECRET"
-          echo "Vars: $VARS"
+          echo "Vars: ${{ vars.ENVVAR }}"
           echo "Environment: $ENVIRONMENT"
         env:
           SECRET: ${{ secrets.SECRETTEST }}
-          VARS: ${{ vars.ENVVAR }}
           ENVIRONMENT: ${{ inputs.environment }}
